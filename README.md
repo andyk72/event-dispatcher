@@ -3,25 +3,57 @@ event-dispatcher Module
 
 Exposes a Basic EventDispatcher Class.
 
-api
-===
+Api
+---
 
-nextDayOfWeek Object
---------------------
+```
+@public subscribe(event: string, callback: (data?) => void) => string
 
-nextDayOfWeek.DAYS_OF_WEEK {Object}  
-nextDayOfWeek.dateFormat(date, format?)
-nextDayOfWeek.nextDayOfWeek(dayOfWeek?, date?)  
-nextDayOfWeek.nextSunday(date?)  
-nextDayOfWeek.nextMonday(date?)  
-nextDayOfWeek.nextTuesday(date?)  
-nextDayOfWeek.nextWednesday(date?)  
-nextDayOfWeek.nextThursday(date?)  
-nextDayOfWeek.nextFriday(date?)  
-nextDayOfWeek.nextSaturday(date?)  
+    Subscribes callback function as a listener for event
 
-usage
-=====
+@public unsubscribe(subscriptionId: string) => void
+
+    Unsubscribes the callback subscribed with the subscriptionId subscription
+
+@public dispatch(event: string, data?: object) => void
+
+    Dispatches event with data to all the callbacks subscribed to event  
+
+@public getEventSubscriptions(event: string) => object
+
+    Returns all the subscriptions for event
+
+@private _getSubscriptionId(event: string) => string
+
+    Creates and returns a unique subscription id for event
+
+@private _noEvents(event: string) => boolean
+
+    Returns if there are no events of event type
+
+@private _log(level: string, message: string) => void
+
+    Logs message to console with level style
+    Uses the console js native object methods
+```
+
+Properties
+----------
+
+```
+@private _events: object
+
+    Format
+
+        .<eventName>: object
+            .<subscriptionId>: (data?) => void
+            .<subscriptionId> (data?) => void
+            ...
+        ...
+```
+
+Usage
+-----
 
 ```
 

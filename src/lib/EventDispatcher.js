@@ -19,9 +19,9 @@
  * @public {Function} unsubscribe(subscriptionId: string) => void
  * @public {Function} dispatch(event: string, data?: object) => void
  * @public {Function} getEventSubscriptions(event: string) => object
- * @private {Function} _getSubscriptionId() => string
- * @private {Function} _noEvents(event) => boolean
- * @private {Function} _log(level, message) => void
+ * @private {Function} _getSubscriptionId(event: string) => string
+ * @private {Function} _noEvents(event: string) => boolean
+ * @private {Function} _log(level: string, message: string) => void
  */
 
 class EventDispatcher {
@@ -92,7 +92,7 @@ class EventDispatcher {
     }
 
     /**
-     * Creates and returns a unique subscription id
+     * Creates and returns a unique subscription id for event
      * This must be used to unsubscribe with the unsubscribe(subscriptionId) method
      * @returns {String}
      *  Model
