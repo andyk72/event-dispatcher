@@ -9,32 +9,33 @@ Api
 ```
 @public subscribe(event: string, callback: (data?) => void) => string
 
-    Subscribes callback function as a listener for event
+    Subscribes callback function as a listener for event.
+    Returns subscription id.
 
 @public unsubscribe(subscriptionId: string) => void
 
-    Unsubscribes the callback subscribed with the subscriptionId subscription
+    Unsubscribes the callback subscribed with the subscriptionId subscription.
 
 @public dispatch(event: string, data?: object) => void
 
-    Dispatches event with data to all the callbacks subscribed to event  
+    Dispatches event with data to all the callbacks subscribed to event.
 
 @public getEventSubscriptions(event: string) => object
 
-    Returns all the subscriptions for event
+    Returns all the subscriptions for event.
 
 @private _getSubscriptionId(event: string) => string
 
-    Creates and returns a unique subscription id for event
+    Creates and returns a unique subscription id for event.
 
 @private _noEvents(event: string) => boolean
 
-    Returns if there are no events of event type
+    Returns if there are no events of event type.
 
 @private _log(level: string, message: string) => void
 
-    Logs message to console with level style
-    Uses the console js native object methods
+    Logs message to console with level style.
+    Uses the console js native object methods.
 ```
 
 Properties
